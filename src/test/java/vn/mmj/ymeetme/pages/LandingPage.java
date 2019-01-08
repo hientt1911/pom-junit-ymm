@@ -19,5 +19,9 @@ public class LandingPage extends PageObject {
 		this.switchToPage(FbLoginForm.class);
 	}
 	
+	public void click_gg_login_btn() {
+		gg_login_btn.click();
+		this.switchToPage(GgLoginPage.class);
+	}
 	
 }
