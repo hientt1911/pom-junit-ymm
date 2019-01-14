@@ -7,33 +7,33 @@ import net.serenitybdd.core.pages.WebElementFacade;
 public class GgLoginPage extends PageObject{
 
 	@FindBy(id="identifierId")
-	WebElementFacade gg_email_input;
+	WebElementFacade ggEmailInput;
 	
 	@FindBy(id="identifierNext")
-	WebElementFacade next_btn_1;
+	WebElementFacade nextBtn1;
 	
 	@FindBy(xpath="//input[@name='password']")
-	WebElementFacade gg_pass_input;
+	WebElementFacade ggPassInput;
 	
 	@FindBy(id="passwordNext")
-	WebElementFacade next_btn_2;
+	WebElementFacade nextBtn2;
 
 
 	public void enter_gg_email(String email) {
-		gg_email_input.sendKeys(email);
+		ggEmailInput.sendKeys(email);
 	}
 	
 	public void click_next_btn_1() {
-		next_btn_1.click();
+		nextBtn1.click();
 	}
 
 	public void enter_gg_pass(String pass) {
-		gg_pass_input.sendKeys(pass);
+		ggPassInput.sendKeys(pass);
 	}
 
 	public void click_next_btn_2() {
-		next_btn_2.click();
-		this.switchToPage(TopMenu.class);
+		nextBtn2.click();
+//		this.switchToPage(TopMenu.class);
 	}
 	
 	
