@@ -1,5 +1,11 @@
 package vn.mmj.ymeetme.steps;
 
+import java.util.List;
+
+import net.serenitybdd.core.pages.WebElementFacade;
+
+//import java.util.ArrayList;
+
 import net.thucydides.core.annotations.Step;
 import vn.mmj.ymeetme.pages.SearchForm;
 
@@ -28,4 +34,13 @@ public class SearchFormSteps {
 	public void submit_search_form() {
 		searchForm.click_search_btn();		
 	}
+	
+	public void select_constellations_include(String constell) {
+		searchForm.select_constellations(constell);
+	}
+
+	public void choose_body_type_include(List<WebElementFacade> bodyTypes) {
+		searchForm.select_body_type(bodyTypes);		
+	}
+
 }

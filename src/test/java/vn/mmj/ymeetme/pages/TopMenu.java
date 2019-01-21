@@ -9,7 +9,7 @@ import net.serenitybdd.core.pages.WebElementFacade;
 
 public class TopMenu extends PageObject{
 	
-	@FindBy(css="a.nav__link--2")
+	@FindBy(css="a.nav__link--2 > span.nav__text")
 	List<WebElementFacade> top_menu_items; 
 	
 	@FindBy(xpath="a.nav__link.nav__link--2")
@@ -19,10 +19,11 @@ public class TopMenu extends PageObject{
 	WebElementFacade searchMenuItem;
 	
 	public String get_top_menu_item_text(){
+		waitFor(top_menu_items.size());
 		ArrayList<String> menu_texts = new ArrayList<String>();
 		for (WebElementFacade top_menu_item:top_menu_items)
 		{
-//			System.out.println(top_menu_item.getText());
+			System.out.println(top_menu_item.getText());
 			menu_texts.add(top_menu_item.getText()) ;
 		}	
 		return menu_texts.toString();

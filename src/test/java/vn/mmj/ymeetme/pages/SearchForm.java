@@ -1,5 +1,9 @@
 package vn.mmj.ymeetme.pages;
 
+import java.util.List;
+
+//import java.util.ArrayList;
+
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -9,7 +13,7 @@ public class SearchForm extends PageObject{
 	WebElementFacade age_min;
 	WebElementFacade age_max;
 	
-	@FindBy(id="react-select-2--value")
+	@FindBy(css="div.Select.is-clearable.Select--multi")
 	WebElementFacade constellation;
 	
 	WebElementFacade height_min;
@@ -52,6 +56,9 @@ public class SearchForm extends PageObject{
 	@FindBy(xpath="//button[@type='reset']")
 	WebElementFacade resetBtn;
 	
+	@FindBy(xpath="//div[contain(@aria-activedescendant, '--option-2')]")
+	WebElementFacade songTu;
+	
 	public void click_reset_btn() {
 		waitFor(resetBtn);
 		resetBtn.click();
@@ -69,6 +76,20 @@ public class SearchForm extends PageObject{
 	public void select_min_age(String min_age) {
 		waitFor(age_min);
 		age_min.selectByValue(min_age);		
+	}
+	
+	public void select_constellations(String con) {
+		constellation.click();
+		constellation.selectByValue(con);
+	}
+
+	public void select_body_type(List<WebElementFacade> bodyTypes) {
+		for (WebElementFacade bd : bodyTypes) {
+			if (!bd.isSelected()) {
+				bd.click();				
+			}
+		}
+		
 	}
 	
 }

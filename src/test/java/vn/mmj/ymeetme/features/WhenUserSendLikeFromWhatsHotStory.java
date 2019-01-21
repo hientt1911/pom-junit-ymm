@@ -1,5 +1,6 @@
 package vn.mmj.ymeetme.features;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -26,6 +27,7 @@ public class WhenUserSendLikeFromWhatsHotStory {
 	@Steps
 	TopMenuSteps topMenuSteps;
 	
+	@Ignore
 	@Test
 	public void send_like_from_whats_hot_page() {
 		
