@@ -31,7 +31,8 @@ public class FbLoginForm extends PageObject{
 	
 	public void click_login_btn() {
 		String mainWindow = getDriver().getWindowHandle();
-		loginBtn.click();		
+		loginBtn.click();	
+//		selectWindow();
 		ArrayList<String> windows = new ArrayList<String>(getDriver().getWindowHandles());
 		windows.remove(mainWindow);
 		getDriver().switchTo().window(windows.get(0));

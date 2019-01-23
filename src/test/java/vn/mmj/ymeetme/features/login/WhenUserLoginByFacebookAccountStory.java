@@ -1,4 +1,4 @@
-package vn.mmj.ymeetme.features;
+package vn.mmj.ymeetme.features.login;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;

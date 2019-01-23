@@ -1,4 +1,4 @@
-package vn.mmj.ymeetme.features;
+package vn.mmj.ymeetme.features.like;
 
 import org.junit.Ignore;
 import org.junit.Test;

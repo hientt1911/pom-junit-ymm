@@ -35,12 +35,12 @@ public class SearchFormSteps {
 		searchForm.click_search_btn();		
 	}
 	
-	public void select_constellations_include(String constell) {
-		searchForm.select_constellations(constell);
-	}
+//	public void select_constellations_include(String constell) {
+//		searchForm.select_constellations(constell);
+//	}
 
-	public void choose_body_type_include(List<WebElementFacade> bodyTypes) {
-		searchForm.select_body_type(bodyTypes);		
+	public void choose_body_type_include(String[] bodyTypeSearchCondition) {
+		searchForm.select_body_types(bodyTypeSearchCondition);		
 	}
 
 }
