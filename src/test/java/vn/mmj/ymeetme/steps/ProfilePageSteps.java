@@ -8,7 +8,11 @@ public class ProfilePageSteps {
 	ProfilePage profilePage;
 	
 	@Step
-	public String other_age_on_profile_page() {
+	public Integer other_age_on_profile_page() {
 		return profilePage.get_other_user_age();
+	}
+
+	public String otherBodyTypeOnProfilePage() {
+		return profilePage.get_other_user_body_type();
 	}
 }

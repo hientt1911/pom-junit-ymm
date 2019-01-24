@@ -2,6 +2,9 @@ package vn.mmj.ymeetme.features.search;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
+import static org.hamcrest.Matchers.hasItemInArray;
+import static org.hamcrest.Matchers.isOneOf;
+import static org.hamcrest.Matchers.isIn;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -49,26 +52,19 @@ public class WhenUserSearchPartnerByBodyTypes {
 
 	@Test
 	public void search_partner_by_body_type() {
-		// Open Landing page
 		landingPageSteps.is_on_landing_page();
-		// Click Login by Fb btn
 		landingPageSteps.open_fb_login_form();
-		// Login by Fb Account
 		UserAccount userAccount = new UserAccount("test.cani123@gmail.com", "hien_cani123");
 		loginByFbSteps.login_by_fb_account(userAccount);
-		// Open Whats hot Page
 		topMenuSteps.open_whats_hot_page();
-		// Open Search page
 		topMenuSteps.open_search_page();
-		// Reset search conditions
 		searchFormSteps.clear_old_search_conditions();
-		// Choose body type
 		searchFormSteps.choose_body_type_include(ConstantData.BODY_TYPE_SEARCH_CONDITION);
-		// Click "Timf kieems btn"
 		searchFormSteps.submit_search_form();		
-		// Open profile Page from first card
 		searchResultPageSteps.open_profile_page_from_firstc_card();
-		//verify search result
-		assertThat(profilePageSteps.other_age_on_profile_page(), equalTo("30"));
+//		assertThat(profilePageSteps.other_age_on_profile_page(), equalTo("30"));
+//		assertThat(ConstantData.BODY_TYPE_SEARCH_CONDITION, hasItemInArray(profilePageSteps.other_body_type_on_profile_page())) ;
+//		assertThat(profilePageSteps.other_body_type_on_profile_page(), isOneOf(ConstantData.BODY_TYPE_SEARCH_CONDITION));
+		assertThat(profilePageSteps.otherBodyTypeOnProfilePage(), isIn(ConstantData.BODY_TYPE_SEARCH_CONDITION));
 	}
 }

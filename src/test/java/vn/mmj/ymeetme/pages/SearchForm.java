@@ -13,45 +13,18 @@ public class SearchForm extends PageObject{
 	WebElementFacade age_min;
 	WebElementFacade age_max;
 	
-	@FindBy(css="div.Select.is-clearable.Select--multi")
+	@FindBy(xpath="//h3[text()='Chòm sao']/following-sibling::div[1]/div/div")
 	WebElementFacade constellation;
-	
-	@FindBy(xpath="//h3[text()='Chòm sao']/following-sibling::div/div/div/div[text()='Song Tử']")
-	WebElementFacade songtu;
-	
+	                                                                              		
 	WebElementFacade height_min;
 	WebElementFacade height_max;
 	WebElementFacade residence_country;
 	
-	@FindBy(id="react-select-3--value")
+	@FindBy(xpath="//h3[text()='Nơi ở hiện tại']/following-sibling::div/div/div")
 	WebElementFacade curCity;
 	
-	@FindBy(id="react-select-4--value")
+	@FindBy(xpath="//h3[text()='Quê quán']/following-sibling::div[1]/div/div")
 	WebElementFacade homeTown;
-	
-//	@FindBy(xpath="//div[@id='body_type_ids']/div/label")
-//	WebElementFacade randomBody;
-//	
-//	@FindBy(xpath="//div[@id='body_type_ids']/div[2]/label")
-//	WebElementFacade thin;
-//	
-//	@FindBy(xpath="//div[@id='body_type_ids']/div[3]/label")
-//	WebElementFacade medium;
-//	
-//	@FindBy(xpath="//div[@id='body_type_ids']/div[4]/label")
-//	WebElementFacade sport;
-//	
-//	@FindBy(xpath="//div[@id='body_type_ids']/div[5]/label")
-//	WebElementFacade strong;
-//	
-//	@FindBy(xpath="//div[@id='body_type_ids']/div[6]/label")
-//	WebElementFacade fat;
-//	
-//	@FindBy(xpath="//div[@id='body_type_ids']/div[7]/label")
-//	WebElementFacade big;
-//	
-//	@FindBy(xpath="//div[@id='body_type_ids']/div[8]/label")
-//	WebElementFacade tall;
 	
 	@FindBy(id="fourthStep")
 	WebElementFacade searchBtn;
@@ -81,13 +54,6 @@ public class SearchForm extends PageObject{
 		age_min.selectByValue(min_age);		
 	}
 	
-//	public void select_constellations(String con) {
-//		constellation.click();
-//		con.click();
-//		
-//		//constellation.selectByValue(con);
-//	}
-	
 	public void select_body_types(String[] bodyTypes) {
 		String element;
 		WebElementFacade bd;
@@ -100,9 +66,18 @@ public class SearchForm extends PageObject{
 			}
 		}
 	}
-	
-//	public void scrollTo(String label) {
-//		getDriver().
-//		
-//	}
+
+	public void select_constellations(String[] constellations) {
+		String element;
+		WebElementFacade cstl;
+//		evaluateJavascript("arguments[0].scrollIntoView(true)", $(String.format("//h3[text()='Chòm sao']")));
+		for (String constell : constellations) {
+			constellation.click();
+			element = String.format("//*[text()='%s']", constell);
+			cstl = $(element);
+			evaluateJavascript("arguments[0].scrollIntoView(true)", cstl);
+			cstl.click();
+		}
+	}
+
 }

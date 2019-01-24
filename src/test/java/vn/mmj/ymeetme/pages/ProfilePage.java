@@ -9,7 +9,15 @@ public class ProfilePage extends PageObject{
 	@FindBy(xpath="//table/tbody/tr[2]/td[2]")
 	WebElementFacade otherUserAge;
 	
-	public String get_other_user_age() {
-		return otherUserAge.getText();
+	@FindBy(xpath="//td[text()='Dáng người']/following-sibling::td")
+	WebElementFacade otherUserBodyType;
+	
+	public Integer get_other_user_age() {
+		int age = Integer.parseInt(otherUserAge.getText());
+		return age;
+	}
+
+	public String get_other_user_body_type() {
+		return otherUserBodyType.getText();
 	}
 }

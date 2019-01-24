@@ -3,7 +3,9 @@ package vn.mmj.ymeetme.models;
 import org.apache.commons.lang3.RandomStringUtils;
 
 public class ConstantData {
-	
+	public static final String URL = "https://test.ymeet.me/";
+	public static final UserAccount USERACCOUNT = new UserAccount("test.cani123@gmail.com", "hien_cani123");
+		
 	// Search conditions 
 	public static final String MAX_AGE_SEARCH_CONDITION = "30";
 	public static final String MIN_AGE_SEARCH_CONDITION = "30";

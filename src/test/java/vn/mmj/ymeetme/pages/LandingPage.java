@@ -1,14 +1,13 @@
 package vn.mmj.ymeetme.pages;
 
-import java.util.ArrayList;
-
 import net.serenitybdd.core.annotations.findby.FindBy;
-import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
+import vn.mmj.ymeetme.common.PageObjectFacade;
+import vn.mmj.ymeetme.models.ConstantData;
 
-@DefaultUrl("https://test.ymeet.me/")
-public class LandingPage extends PageObject {
+@DefaultUrl(ConstantData.URL)
+public class LandingPage extends PageObjectFacade {
 	
 	@FindBy(css=".lp-btn--primary")
 	WebElementFacade fbLoginBtn;
@@ -18,10 +17,7 @@ public class LandingPage extends PageObject {
 
 	public void click_fb_login_btn() {
 		fbLoginBtn.click();
-		String defaultWindow = getDriver().getWindowHandle(); 
-		ArrayList<String> windows = new ArrayList<String>(getDriver().getWindowHandles());
-		windows.remove(defaultWindow);
-		getDriver().switchTo().window(windows.get(0));
+		selectWindow();
 	}
 	
 	public void click_gg_login_btn() {
