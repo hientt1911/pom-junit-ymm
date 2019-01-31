@@ -2,7 +2,9 @@ package vn.mmj.ymeetme.pages;
 
 import java.util.List;
 
-//import java.util.ArrayList;
+import javax.swing.plaf.synth.SynthSeparatorUI;
+
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
@@ -46,7 +48,7 @@ public class SearchForm extends PageObject{
 
 	public void select_max_age(String max_age) {
 		waitFor(age_max);
-		age_max.selectByValue (max_age);		
+		age_max.selectByValue(max_age);		
 	}
 
 	public void select_min_age(String min_age) {
@@ -57,7 +59,8 @@ public class SearchForm extends PageObject{
 	public void select_body_types(String[] bodyTypes) {
 		String element;
 		WebElementFacade bd;
-		evaluateJavascript("arguments[0].scrollIntoView(true)", $(String.format("//h3[text()='Quê quán']")));
+//		evaluateJavascript("arguments[0].scrollIntoView(true)", $(String.format("//h3[text()='Quốc Gia']")));
+		evaluateJavascript("window.scrollBy(0, 400)");
 		for (String bodyType : bodyTypes) {
 			element = String.format("//label[text()='%s']", bodyType);
 			bd = $(element);
@@ -66,18 +69,51 @@ public class SearchForm extends PageObject{
 			}
 		}
 	}
-
-	public void select_constellations(String[] constellations) {
+	
+	public void select_constellations(List<String> mySao) {
 		String element;
-		WebElementFacade cstl;
-//		evaluateJavascript("arguments[0].scrollIntoView(true)", $(String.format("//h3[text()='Chòm sao']")));
-		for (String constell : constellations) {
+//		EventFiringWebDriver event = new EventFiringWebDriver(getDriver());
+//		evaluateJavascript("arguments[0].scrollIntoView(true)", $(String.format("//h3[text()='Tuổi']")));
+		evaluateJavascript("window.scrollBy(0, 200)");
+//		try {
+//			Thread.sleep(5000);
+//		} catch (InterruptedException e) {
+//			e.printStackTrace();
+//		};
+		for (String constell : mySao) {
 			constellation.click();
 			element = String.format("//*[text()='%s']", constell);
-			cstl = $(element);
-			evaluateJavascript("arguments[0].scrollIntoView(true)", cstl);
-			cstl.click();
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			};
+			$(element).click();
 		}
 	}
 
+	public void choose_cur_country(String countrySearchCondition) {
+		evaluateJavascript("window.scrollBy(0, 200)");
+		residence_country.selectByVisibleText(countrySearchCondition);		
+	}
+
+	public void select_cur_cities(List<String> curCitySeardCondition) {
+		String element;
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		};
+		evaluateJavascript("window.scrollBy(0, 100)");
+		for (String city : curCitySeardCondition) {
+			curCity.click();
+			element = String.format("//*[text()='%s']", city);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			};
+			$(element).click();
+		}
+	}
 }

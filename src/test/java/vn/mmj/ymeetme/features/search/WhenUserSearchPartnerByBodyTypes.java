@@ -54,8 +54,7 @@ public class WhenUserSearchPartnerByBodyTypes {
 	public void search_partner_by_body_type() {
 		landingPageSteps.is_on_landing_page();
 		landingPageSteps.open_fb_login_form();
-		UserAccount userAccount = new UserAccount("test.cani123@gmail.com", "hien_cani123");
-		loginByFbSteps.login_by_fb_account(userAccount);
+		loginByFbSteps.login_by_fb_account(ConstantData.USERACCOUNT);
 		topMenuSteps.open_whats_hot_page();
 		topMenuSteps.open_search_page();
 		searchFormSteps.clear_old_search_conditions();

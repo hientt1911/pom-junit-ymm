@@ -7,12 +7,12 @@ public class ConstantData {
 	public static final UserAccount USERACCOUNT = new UserAccount("test.cani123@gmail.com", "hien_cani123");
 		
 	// Search conditions 
-	public static final String MAX_AGE_SEARCH_CONDITION = "30";
-	public static final String MIN_AGE_SEARCH_CONDITION = "30";
+	public static final String MAX_AGE_SEARCH_CONDITION = "18";
+	public static final String MIN_AGE_SEARCH_CONDITION = "50";
 	public static final String MAX_HEIGHT_SEARCH_CONDITION = "135";
 	public static final String MIN_HEIGHT_SEARCH_CONDITION = "200";
-	public static final String COUNTRY_SEARCH_CONDITION = "Việt Nam";
-	public static final String CUR_CITY_SEARCH_CONDITION = "Hà Nội";
+//	public static final String COUNTRY_SEARCH_CONDITION = "Việt Nam";
+//	public static final String CUR_CITY_SEARCH_CONDITION = "Hà Nội";
 	public static final String HOMETOWN_SEARCH_CONDITION = "Hà Nội";
 	public static final String CONSTELLATION_SEARCH_CONDITION[] = {"Song Tử", "Bò Cạp"};
 	public static final String BODY_TYPE_SEARCH_CONDITION[] = {"Mảnh mai", "Cao lớn"};

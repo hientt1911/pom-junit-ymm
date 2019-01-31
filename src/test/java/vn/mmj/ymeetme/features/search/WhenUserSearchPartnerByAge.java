@@ -6,8 +6,10 @@ import static org.hamcrest.number.OrderingComparison.lessThanOrEqualTo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.openqa.selenium.WebDriver;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
 import vn.mmj.ymeetme.models.ConstantData;
 import vn.mmj.ymeetme.steps.LandingPageSteps;
@@ -19,6 +21,8 @@ import vn.mmj.ymeetme.steps.TopMenuSteps;
 
 @RunWith(SerenityRunner.class)
 public class WhenUserSearchPartnerByAge {
+	@Managed
+	WebDriver driver;
 	
 	@Steps
 	LandingPageSteps landingPageSteps; 
